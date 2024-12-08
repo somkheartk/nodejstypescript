@@ -35,6 +35,6 @@ jobs:
         # คอมไพล์ TypeScript
         npm run build
 
-        # รันแอปด้วย PM2
+        # รันแอปด้วย PM2 
         pm2 restart nodejs-app || pm2 start dist/app.js --name nodejs-app
         EOF
