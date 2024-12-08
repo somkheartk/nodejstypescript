@@ -23,7 +23,7 @@ jobs:
             cd /var/www/nodejstypescript
             git pull origin main
             npm install
-            tsc
+            tsc 
             pm2 restart nodejstypescript 
             pm2 save
           EOF
