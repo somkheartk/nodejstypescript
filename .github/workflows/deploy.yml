@@ -1,4 +1,4 @@
-name: Deploy TypeScript App to EC2
+name: Deploy to Server
 
 on:
   push:
@@ -8,33 +8,22 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Deploy to EC2
-      env:
-        KEY: ${{ secrets.EC2_KEY }}
-        HOST: ${{ secrets.EC2_HOST }}
-      run: |
-        # สร้างไฟล์ key.pem
-        echo "$KEY" > key.pem
-        chmod 600 key.pem
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-        # SSH ไปยัง EC2 Instance
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@$HOST << EOF
-        cd /home/ubuntu/nodejs-app
-
-        # ดึงโค้ดจาก GitHub
-        git pull origin main
-
-        # ติดตั้ง dependencies
-        npm install
-
-        # คอมไพล์ TypeScript
-        npm run build
-
-        # รันแอปด้วย PM2   
-        pm2 restart nodejs-app || pm2 start dist/app.js --name nodejs-app
-        EOF
+      - name: Deploy to Server
+        run: |
+          ssh ubuntu@18.206.118.136 << 'EOF'
+            cd /var/www/your-app
+            git pull origin main
+            npm install
+            tsc
+            pm2 restart your-app-name
+            pm2 save
+          EOF
