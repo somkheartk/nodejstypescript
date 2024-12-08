@@ -24,6 +24,6 @@ jobs:
             git pull origin main
             npm install
             tsc
-            pm2 restart nodejstypescript
+            pm2 restart nodejstypescript 
             pm2 save
           EOF
