@@ -1,0 +1,41 @@
+name: Deploy TypeScript App to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to EC2
+      env:
+        KEY: ${{ secrets.EC2_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+      run: |
+        # สร้างไฟล์ key.pem จาก Secrets
+        echo "$KEY" > key.pem
+        chmod 600 key.pem
+
+        # SSH ไปยัง EC2 Instance
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@$HOST << EOF
+        # เปลี่ยนไปที่โฟลเดอร์โปรเจกต์
+        cd /home/ubuntu/nodejs-app
+
+        # ดึงโค้ดล่าสุดจาก GitHub
+        git pull origin main
+
+        # ติดตั้ง dependencies
+        npm install
+
+        # คอมไพล์ TypeScript เป็น JavaScript
+        npm run build
+
+        # รันแอปด้วย PM2
+        pm2 restart nodejs-app || pm2 start dist/app.js --name nodejs-app
+        EOF
