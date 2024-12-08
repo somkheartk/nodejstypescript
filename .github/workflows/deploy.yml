@@ -20,10 +20,10 @@ jobs:
       - name: Deploy to Server
         run: |
           ssh ubuntu@18.206.118.136 << 'EOF'
-            cd /var/www/your-app
+            cd /var/www/nodejstypescript
             git pull origin main
             npm install
             tsc
-            pm2 restart your-app-name
+            pm2 restart nodejstypescript
             pm2 save
           EOF
