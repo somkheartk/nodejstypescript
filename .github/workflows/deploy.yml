@@ -17,7 +17,31 @@ jobs:
       with:
         host: ${{secrets.EC2_HOST}}
         username: ubuntu
-        key: ${{secrets.EC2_SSH_KEY}}
+        key: MIIEowIBAAKCAQEAwUS6PeADOCiOzXNf2TENhFaqE8N46vGkiP5nQCAqVbwRhkVd
+Yq30aINr6jy3o14ORoy9rfCwBh+zweI7bLCSPzTp2u7zh932/LN/4D5IewZSvxH3
+XZMoLxyAyhEZ+FCiVR5N6bZYLyo6dhJtQebYEqL5WCynC7/6uP7BDHYho3OZIVzx
+4lxYjPspovgOwWS9N2QoGV7TzShc9gpc9VQYAqWSIhjQLCTcnubseGVVXar33ZaO
+S9A2msdDYVPA2yqvGIRCdyUM+38POTzlLFzQM4QxQEyPTv/Ic/18bxiN0GOHgIE0
+eazc/K8jxvS8LQ3ixGYxyDfjbXTIBnsadgimqwIDAQABAoIBAHHm71xICZ2vSXoL
+5RE7t5um99Vt/nV4tF+Ij5FbY5fjnvBjMQZXPxPZYGBMKG4/oGozyBYbI6J4TJiX
+nC4SYh6eMLS23w/T4RxNLbAbBNx8fYfeLssXTzd0tPJh4cxWuVUw5vo2XQJvAMVV
+Vs7gHbfeFNXCezCRlFIy0dNmS6zoDLnB3rvlgz36/7tDFOVn4jiXwlcRgMFBLTj3
+LqnYHtNJxWpkC0Q0Ldhs+uqxWhpNo0KvEYrOEWIbFmYrWHbMtzorNOTNg9OG1Hl5
+IRse4IO5dDuD1rsIr9Btrg1gQWb6FAN4KLIgx7T/X4lhQJomYg/wKL7/GsEcbL07
+u2nZ9AECgYEA81CsHLB/Ofx7F4sJj6lKWwPfuL7QvKTnPTMqKbPgEu7qqFwr4REs
+mikr1VoWG+f/ggzL+ubQ4nHLoulFn0TtgexrkMFUHX/+jHDKoWfq1wNR7jIkcjwY
+AkOfbcC6/qiN3tJ2hufYUfeQXk1x3lb0oVlijC7neg0cDDcd0ENyp3ECgYEAy1gf
+mMMfFkUBdudXzRbaEWOz+mP3xL1YW9LA+LXZWCSkDh67KPPyoB9xJxSvD2MqhZ1X
+spz+SyUVIMdeGbmf65bDwYLlqehy4jlnRYrBU4YinsEBmm4cTVb8SoZlhVnrU273
+7tO6tUt9Our6NeL9fv1zrp5aNZ+cFqESQa0/edsCgYEA4uuM6ODOdwT6w7U/AIWx
+O/r77m+/ewAMTS5nlycTxnSd0tDLd4ct4sSdBciTsAkJaX+HyYL0swvQECqgbO66
+1x3oH8O+MBkMDGyw/iFNiqOlCJIpHYTgG1R33sMNYq1OSs5cDmsxexh4wwpVNThB
+xCz51KV16oVJcDcDDhWpW3ECgYBZ6UM/Vrd+L1DwdGZ8Rqhxm/ZOtrktgtN49n1g
++3d44+quW6RB/WvApWZw81JcqWp53hKS5ZwDOghXkA/prAwsLWOtQuWt9RwnL16c
+fzfwaJUSQSEmWZ2mDNpNUZO+HP5Sy/RQ48ngs9pRnOi5vv57kjH+egJFR6fK0bmy
+1JoGlQKBgFtpo4wQUhF3sWecfl5BjwuojKWIrFEFXlvifzM4EmHni863QRQedJAt
+yMYEI4n1g5bEFkg5KJaJvdglIgz1fLFU1h3SHYQtmfMwm/rQFUQ+dF8neTL0/RyK
+Nl6EjrA1t8MvCEGLEnuQ1ooLFWhHaS7SzYNY3iEBPUrtFN19/4kI
         script: |
           cd /var/www/your-app
           git pull origin main
