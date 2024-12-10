@@ -2,11 +2,14 @@ import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IPrediction extends Document {
   user: mongoose.Schema.Types.ObjectId;
+  createDate:mongoose.Schema.Types.Date;
+  updateDate:mongoose.Schema.Types.Date;
   predictionData: string; // สามารถเปลี่ยนเป็นชนิดข้อมูลที่คุณต้องการ
 }
 
 const predictionSchema: Schema = new Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  
   predictionData: { type: String, required: true }, // สามารถเปลี่ยนเป็นประเภทข้อมูลอื่นได้
 }, { timestamps: true });
 

@@ -1,9 +1,9 @@
 // routes/user.route.ts
 import { Router } from 'express';
-import { createUser } from '../controllers/userController'
+import { addUser } from '../controllers/userController'
 
 const router = Router();
 
-router.post('/create', createUser);
+router.post('/create', addUser);
 
 export default router;
